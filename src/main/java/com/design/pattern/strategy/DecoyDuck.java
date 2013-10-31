@@ -16,10 +16,10 @@
  */
 package com.design.pattern.strategy;
 
+import static java.lang.System.out;
+
 import com.design.pattern.strategy.action.FlyNoWay;
 import com.design.pattern.strategy.action.MuteQuack;
-
-import static java.lang.System.out;
 
 /**
  * 诱饵鸭。

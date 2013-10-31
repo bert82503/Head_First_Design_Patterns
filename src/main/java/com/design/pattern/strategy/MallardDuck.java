@@ -16,10 +16,10 @@
  */
 package com.design.pattern.strategy;
 
+import static java.lang.System.out;
+
 import com.design.pattern.strategy.action.FlyWithWings;
 import com.design.pattern.strategy.action.Quack;
-
-import static java.lang.System.out;
 
 /**
  * 绿头鸭。
