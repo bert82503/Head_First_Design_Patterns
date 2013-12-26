@@ -7,7 +7,7 @@
   <version>1.0</version>
   <packaging>jar</packaging>
 
-  <name>Head_First_Design_Patterns</name>
+  <name>Head First Design Patterns</name>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
