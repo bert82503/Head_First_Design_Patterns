@@ -16,28 +16,63 @@
  */
 package com.design.pattern.factory;
 
-import static java.lang.System.out;
+import com.design.pattern.factory.bean.Cheese;
+import com.design.pattern.factory.bean.Clam;
+import com.design.pattern.factory.bean.Dough;
+import com.design.pattern.factory.bean.Pepperoni;
+import com.design.pattern.factory.bean.Sauce;
+import com.design.pattern.factory.bean.Veggie;
 
-import com.design.pattern.factory.bean.Pizza;
+import java.util.List;
 
 /**
- * 来吃些比萨吧！
+ * 建造原料工厂，负责创建原料家族中的每一种原料。
  *
  * @author	lihg
  * @version 2013-12-28
  */
-public class PizzaTest {
+public interface PizzaIngredientFactory {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		PizzaStore nyStore = new NYPizzaStore();
-		PizzaStore chicagoStore = new ChicagoPizzaStore();
-		
-		Pizza pizza = nyStore.orderPizza("cheese");
-		out.println("Ethan ordered a " + pizza.getName() + '\n');
-		
-		pizza = chicagoStore.orderPizza("cheese");
-		out.println("Joel ordered a " + pizza.getName() + '\n');
-	}
+	/**
+	 * 生产面团。
+	 *
+	 * @return
+	 */
+	Dough createDough();
+	
+	/**
+	 * 生产酱料。
+	 *
+	 * @return
+	 */
+	Sauce createSauce();
+	
+	/**
+	 * 生产芝士。
+	 *
+	 * @return
+	 */
+	Cheese createCheese();
+	
+	/**
+	 * 生产蔬菜。
+	 *
+	 * @return
+	 */
+	List<Veggie> createVeggies();
+	
+	/**
+	 * 生产腊肠。
+	 *
+	 * @return
+	 */
+	Pepperoni createPepperoni();
+	
+	/**
+	 * 生产蛤蛎。
+	 *
+	 * @return
+	 */
+	Clam createClam();
 
 }

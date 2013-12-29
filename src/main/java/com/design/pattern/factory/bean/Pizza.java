@@ -18,7 +18,6 @@ package com.design.pattern.factory.bean;
 
 import static java.lang.System.out;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -30,25 +29,18 @@ import java.util.List;
 public abstract class Pizza {
 
 	protected String name;	// 名称
-	protected String dough;	// 面团类型
-	protected String sauce;	// 酱料类型
-	protected List<String> toppings = new ArrayList<>();	// 一套佐料
+	protected Dough dough;	// 面团类型
+	protected Sauce sauce;	// 酱料类型
+	
+	protected List<Veggie> veggies;	// 一套佐料
+	protected Cheese cheese;
+	protected Pepperoni pepperoni;
+	protected Clam clam;
 	
 	/**
-	 * 准备工作需要以特定的顺序进行，包含一连串的步骤：
-	 * 	要烘烤哪个比萨
-	 * 	搅拌面料
-	 * 	添加酱料和一些佐料
+	 * 收集比萨所需的原料，而这些原料当然是来自原料工厂了。
 	 */
-	public void prepare() {
-		out.println("Preparing " + name);
-		out.println("Tossing " + dough);
-		out.println("Adding " + sauce);
-		out.println("Adding toppings: ");
-		for (String topping : toppings) {
-			out.println("   " + topping);
-		}
-	}
+	public abstract void prepare();
 	
 	/**
 	 * 烘烤比萨。
@@ -79,6 +71,24 @@ public abstract class Pizza {
 	 */
 	public String getName() {
 		return name;
+	}
+	
+	/**
+	 * 设置比萨名。
+	 *
+	 * @param name
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("Pizza [")
+		.append("name=").append(name)
+		.append(']');
+		return sb.toString();
 	}
 
 }

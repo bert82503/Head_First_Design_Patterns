@@ -14,30 +14,41 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package com.design.pattern.factory;
+package com.design.pattern.factory.bean;
 
 import static java.lang.System.out;
 
-import com.design.pattern.factory.bean.Pizza;
+import com.design.pattern.factory.PizzaIngredientFactory;
 
 /**
- * 来吃些比萨吧！
+ * 腊肠比萨。
  *
  * @author	lihg
  * @version 2013-12-28
  */
-public class PizzaTest {
+public class PepperoniPizza extends Pizza {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		PizzaStore nyStore = new NYPizzaStore();
-		PizzaStore chicagoStore = new ChicagoPizzaStore();
-		
-		Pizza pizza = nyStore.orderPizza("cheese");
-		out.println("Ethan ordered a " + pizza.getName() + '\n');
-		
-		pizza = chicagoStore.orderPizza("cheese");
-		out.println("Joel ordered a " + pizza.getName() + '\n');
+	private PizzaIngredientFactory ingredientFactory;
+	
+	public PepperoniPizza(PizzaIngredientFactory ingredientFactory) {
+		if (ingredientFactory == null) {
+			throw new IllegalArgumentException("ingredientFactory is null");
+		}
+		this.ingredientFactory = ingredientFactory;
+	}
+	
+	@Override
+	public void prepare() {
+		/*
+		 * 神奇的事情发生在这里！
+		 */
+		out.println("Preparing " + name);
+		dough = ingredientFactory.createDough();
+		sauce = ingredientFactory.createSauce();
+		cheese = ingredientFactory.createCheese();
+		clam = ingredientFactory.createClam();
+		veggies = ingredientFactory.createVeggies();
+		pepperoni = ingredientFactory.createPepperoni();
 	}
 
 }

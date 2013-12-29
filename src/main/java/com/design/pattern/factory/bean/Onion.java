@@ -14,42 +14,14 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package com.design.pattern.factory;
-
-import com.design.pattern.factory.bean.ChicagoStyleCheesePizza;
-import com.design.pattern.factory.bean.NYStyleCheesePizza;
-import com.design.pattern.factory.bean.Pizza;
+package com.design.pattern.factory.bean;
 
 /**
- * 简单比萨工厂。
  * 
- * <p>问题：
- * 压力来自于增加更多的比萨类型（变化的部分）
- * 
- * <p>工厂（factory）：处理创建对象的细节。<br>
- * 模式荣誉奖
  *
  * @author	lihg
- * @version 2013-12-27
+ * @version 2013-12-28
  */
-public class SimplePizzaFactory {
-
-	/**
-	 * 究竟实例化哪个类，要在运行时由一些条件来决定。
-	 *
-	 * @param type
-	 * @return
-	 */
-	public Pizza createPizza(String type) {
-		Pizza pizza = null;
-		
-		// 用 枚举类型 替换
-		if ("NY".equals(type)) {
-			pizza = new NYStyleCheesePizza();
-		} else if ("Chicago".equals(type)) {
-			pizza = new ChicagoStyleCheesePizza();
-		}
-		
-		return pizza;
-	}
+public class Onion implements Veggie {
+	// Onion
 }

@@ -43,21 +43,8 @@ import com.design.pattern.factory.bean.Pizza;
  * @version 2013-12-28
  */
 public abstract class PizzaStore {
-
-//	private SimplePizzaFactory factory;
-
-//	public PizzaStore(SimplePizzaFactory factory) {
-//		if (factory == null) {
-//			throw new IllegalArgumentException("factory is null");
-//		}
-//		
-//		this.factory = factory;
-//	}
 	
 	public final Pizza orderPizza(String type) {
-//		// 使用工厂创建比萨
-//		Pizza pizza = factory.createPizza(type);
-		
 		Pizza pizza = createPizza(type); // 使用“工厂方法”解耦
 		if (pizza == null) {
 			throw new IllegalArgumentException("Invalid Pizza type: " + type);
@@ -84,14 +71,5 @@ public abstract class PizzaStore {
 	 * @return
 	 */
 	protected abstract Pizza createPizza(String type);
-
-//	/**
-//	 * [对象组合] 在运行时动态地改变工厂的行为。
-//	 *
-//	 * @param factory
-//	 */
-//	public void setFactory(SimplePizzaFactory factory) {
-//		this.factory = factory;
-//	}
 
 }

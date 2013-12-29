@@ -16,29 +16,12 @@
  */
 package com.design.pattern.factory.bean;
 
-import static java.lang.System.out;
-
 /**
- * 芝加哥比萨，使用小番茄作为酱料，并使用厚饼。
+ * 小番茄。
  *
  * @author	lihg
- * @version 2013-12-27
+ * @version 2013-12-28
  */
-public class ChicagoStyleCheesePizza extends Pizza {
-
-	public ChicagoStyleCheesePizza() {
-		name = "Chicago Style Deep Dish Cheese Pizza";
-		dough = "Extra Thick Crust Dough";
-		sauce = "Plum Tomato Sauce";
-		
-		// 芝加哥风味的深盘比萨使用许多Mozzarella（意大利白干酪）！
-		toppings.add("Shredded Mozzarella Cheese");
-	}
-	
-	@Override
-	public void cut() {
-		// 将比萨切成正方形
-		out.println("Cutting the Pizza into square slices");
-	}
-
+public class PlumTomatoSauce implements Sauce {
+	// 小番茄
 }

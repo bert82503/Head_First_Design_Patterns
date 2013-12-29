@@ -10,3 +10,7 @@ Head_First_Design_Patterns
 	2013.11.01
 3，装饰者模式（Decorator）
 	2013.11.03
+4，工厂方法模式（Factory Method）
+	2013.12.28
+5，抽象工厂模式
+	2013.12.29（Abstract Factory）

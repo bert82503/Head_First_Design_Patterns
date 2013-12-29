@@ -14,29 +14,14 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package com.design.pattern.factory;
-
-import com.design.pattern.factory.bean.NYStyleCheesePizza;
-import com.design.pattern.factory.bean.Pizza;
+package com.design.pattern.factory.bean;
 
 /**
- * 纽约风味的比萨店。
+ * 芝士原料。
  *
  * @author	lihg
  * @version 2013-12-28
  */
-public class NYStylePizzaStore extends PizzaStore {
-
-	@Override
-	protected Pizza createPizza(String type) {
-		Pizza pizza = null;
-		
-		// 用 枚举类型 替换
-		if ("cheese".equals(type)) {
-			pizza = new NYStyleCheesePizza();
-		}
-		
-		return pizza;
-	}
-
+public interface Cheese {
+	// 芝士原料
 }

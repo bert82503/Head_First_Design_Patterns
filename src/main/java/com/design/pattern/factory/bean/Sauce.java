@@ -14,30 +14,14 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package com.design.pattern.factory;
-
-import static java.lang.System.out;
-
-import com.design.pattern.factory.bean.Pizza;
+package com.design.pattern.factory.bean;
 
 /**
- * 来吃些比萨吧！
+ * 酱料原料。
  *
  * @author	lihg
  * @version 2013-12-28
  */
-public class PizzaTest {
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		PizzaStore nyStore = new NYPizzaStore();
-		PizzaStore chicagoStore = new ChicagoPizzaStore();
-		
-		Pizza pizza = nyStore.orderPizza("cheese");
-		out.println("Ethan ordered a " + pizza.getName() + '\n');
-		
-		pizza = chicagoStore.orderPizza("cheese");
-		out.println("Joel ordered a " + pizza.getName() + '\n');
-	}
-
+public interface Sauce {
+	// 酱料原料
 }

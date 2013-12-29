@@ -14,28 +14,40 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package com.design.pattern.factory;
+package com.design.pattern.factory.bean;
 
-import com.design.pattern.factory.bean.ChicagoStyleCheesePizza;
-import com.design.pattern.factory.bean.Pizza;
+import static java.lang.System.out;
+
+import com.design.pattern.factory.PizzaIngredientFactory;
 
 /**
- * 芝加哥风味的比萨店。
+ * 蛤蛎比萨。
  *
  * @author	lihg
  * @version 2013-12-28
  */
-public class ChicagoStylePizzaStore extends PizzaStore {
+public class ClamPizza extends Pizza {
 
-	@Override
-	protected Pizza createPizza(String type) {
-		Pizza pizza = null;
-		
-		if ("cheese".equals(type)) {
-			pizza = new ChicagoStyleCheesePizza();
+	private PizzaIngredientFactory ingredientFactory;
+	
+	public ClamPizza(PizzaIngredientFactory ingredientFactory) {
+		if (ingredientFactory == null) {
+			throw new IllegalArgumentException("ingredientFactory is null");
 		}
-		
-		return pizza;
+		this.ingredientFactory = ingredientFactory;
+	}
+	
+	@Override
+	public void prepare() {
+		/*
+		 * 神奇的事情发生在这里！
+		 */
+		out.println("Preparing " + name);
+		dough = ingredientFactory.createDough();
+		sauce = ingredientFactory.createSauce();
+		cheese = ingredientFactory.createCheese();
+		// 如果是纽约工厂，就会使用新鲜的蛤蛎；如果是芝加哥工厂，就是冷冻的蛤蛎。
+		clam = ingredientFactory.createClam();
 	}
 
 }

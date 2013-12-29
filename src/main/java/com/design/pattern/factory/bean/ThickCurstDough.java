@@ -17,20 +17,11 @@
 package com.design.pattern.factory.bean;
 
 /**
- * 纽约比萨，有自己的大葱番茄酱（Marinara）和薄饼。
+ * 厚饼。
  *
  * @author	lihg
- * @version 2013-12-27
+ * @version 2013-12-28
  */
-public class NYStyleCheesePizza extends Pizza {
-
-	public NYStyleCheesePizza() {
-		name = "New York Style Sauce and Cheese Pizza";
-		dough = "Thin Crust Dough";
-		sauce = "Marinara Sauce";
-		
-		// 上面覆盖的是意大利reggiano高级干酪！
-		toppings.add("Grated Reggiano Cheese");
-	}
-
+public class ThickCurstDough implements Dough {
+	// 厚饼
 }
