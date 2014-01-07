@@ -14,3 +14,5 @@ Head_First_Design_Patterns
 	2013.12.28
 5，抽象工厂模式
 	2013.12.29（Abstract Factory）
+6，单件模式
+	2014.01.07（Singleton）
