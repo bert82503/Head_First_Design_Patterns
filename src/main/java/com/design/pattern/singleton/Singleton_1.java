@@ -18,19 +18,28 @@ package com.design.pattern.singleton;
 
 /**
  * 使用“双重检查加锁”实现，在 {@code getInstance()} 中减少使用同步。
+ * “双重检查加锁”是指对单件实例进行双重null检查，对类型加锁。
  * 
- * <p>首先检查是否实例已经创建了，如果尚未创建，“才”进行同步。
+ * <p>首先检查实例是否已经创建了，如果尚未创建，“才”进行类型同步。
  * 这样一来，只有第一次会同步，这正是我们想要的。
  * 
  * <p>如果<font color="red"><b>性能是你关心的重点</b></font>，
- * 那么这个做法可以帮你大大地减少 {@code getInstance()} 的时间耗费。
+ * 那么这个做法可以帮你大大地减少 {@link #getInstance()} 的时间耗费。
  *
  * @author	lihg
  * @version 2014-1-7
  */
 public class Singleton_1 {
 
-	// 1，静态变量
+	/**
+	 * 1，使用{@code volatile}静态变量<p>
+	 * 
+	 * 被声明为volatile的所有变量的<b>读取</b>和<b>写入</b>是<font color="red"><b>原子的</b></font>。
+	 * 原子操作不可能交错，所以使用它们时不必担心线程干扰的问题。<br>
+	 * 
+	 * 使用volatile变量减少了<font color="red">内存一致性错误</font>的风险，
+	 * 因为volatile变量的<b>任何写入操作</b>都会和对同一个变量的<b>后续读取</b>建立</b>发生前关系</b>。
+	 */
 	private volatile static Singleton_1 uniqueInstance;
 	
 	private Singleton_1() {
