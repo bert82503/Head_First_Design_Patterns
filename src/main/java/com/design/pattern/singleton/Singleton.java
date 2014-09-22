@@ -31,6 +31,7 @@ public class Singleton {
 
 	// 1，静态变量
 	private static final Singleton uniqueInstance;
+	// 在"静态初始化器"中创建单件
 	static {
 		uniqueInstance = new Singleton();
 	}
